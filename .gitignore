@@ -1,0 +1,88 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+
+# Build output
+dist/
+build/
+
+# Archivos de entorno (contienen claves API o URLs del backend)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDEs y editores
+.vscode/
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Cache
+.cache/
+.parcel-cache/
+coverage/
+.eslintcache
+*.tsbuildinfo
+
+# Configuración opcional de herramientas
+# Si usas Firebase o Netlify y tienen claves locales
+.firebase/
+.netlify/
+
+# Storybook
+out/
+storybook-static/
+
+# Si usas tests con Cypress o Playwright
+cypress/videos/
+cypress/screenshots/
+playwright-report/
+test-results/
