@@ -26,8 +26,8 @@ export default function AppRouter() {
                     <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<TermsAndConditions />} />
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/game" element={<ProtectedRoute roles={["ROLE_USER"]}><Game /></ProtectedRoute>} />
-                    <Route path="/ranking" element={<ProtectedRoute roles={["ROLE_USER"]}><Ranking /></ProtectedRoute>} />
+                    <Route path="/game" element={/*<ProtectedRoute roles={["ROLE_USER"]}>*/<Game />/*</ProtectedRoute>*/} />
+                    <Route path="/ranking" element={/*<ProtectedRoute roles={["ROLE_USER"]}>*/<Ranking />/*</ProtectedRoute>*/} />
                     <Route path="/unauthorized" element={<Unauthorized />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
@@ -35,15 +35,5 @@ export default function AppRouter() {
             </div>
         </>
     )
-    //<AdminRoute> //import AdminRoute from "./AdminRoute"; <Route path="/unauthorized" element={<Unauthorized />} />
-
-    /*
-                        <Route path="/users" element={<ProtectedRoute roles={["ROLE_ADMIN"]}> <User/> </ProtectedRoute>}/>
-                        <Route path="/report" element={<ProtectedRoute roles={["ROLE_USER"]}> <Report/> </ProtectedRoute>}/>
-                        <Route path="/createReport" element={<ProtectedRoute roles={["ROLE_USER"]}> <CreateReport/> </ProtectedRoute>}/>
-                         
-                        
-                                        */
-
-    //                <Footer/>
+                        //<Route path="/users" element={<ProtectedRoute roles={["ROLE_ADMIN"]}> <User/> </ProtectedRoute>}/>
 }
