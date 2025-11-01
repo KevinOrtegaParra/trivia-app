@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation  } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 import Navbar from "../components/ui/NavBar.jsx"
 import Footer from "../components/ui/Footer.jsx";
 import NotFound from "../components/ui/NotFound.jsx";
@@ -8,10 +8,10 @@ import Login from '../pages/Login.jsx'
 import Home from "../pages/Home.jsx"
 import Game from "../components/trivia/Game.jsx"
 import Ranking from "../components/ranking/Ranking.jsx"
-//import User from "../components/users/Users.jsx"
-//import Report from "../components/reportes/Report.jsx"
-//import CreateReport from "../components/reportes/CreateReport.jsx"
 import ProtectedRoute from "./ProtectedRoute.jsx";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import TermsAndConditions from "../pages/TermsAndConditions";
+import Contact from "../pages/Contact";
 
 export default function AppRouter() {
 
@@ -23,6 +23,9 @@ export default function AppRouter() {
                     <Route path="/" element={<Home />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/privacy" element={<PrivacyPolicy />} />
+                    <Route path="/terms" element={<TermsAndConditions />} />
+                    <Route path="/contact" element={<Contact />} />
                     <Route path="/game" element={<ProtectedRoute roles={["ROLE_USER"]}><Game /></ProtectedRoute>} />
                     <Route path="/ranking" element={<ProtectedRoute roles={["ROLE_USER"]}><Ranking /></ProtectedRoute>} />
                     <Route path="/unauthorized" element={<Unauthorized />} />
