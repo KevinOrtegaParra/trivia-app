@@ -53,7 +53,9 @@ export default function TriviaGame() {
     const responder = async (opcionSeleccionada) => {
         const pregunta = preguntas[indiceActual];
         if (opcionSeleccionada === pregunta.correctAnswer) {
-            setPuntuacion(prev => prev + 10);
+            //setPuntuacion(prev => prev + 10);
+            setTimeout(() => setPuntuacion(prev => prev + 10), 50);
+            console.log("new actualization")
             setMensajeModal("✅ ¡Correcto!");
 
             const audio = new Audio(correctSound);
@@ -66,7 +68,8 @@ export default function TriviaGame() {
             audio.play();
             setMostrarModal(true);
             await perdervida()
-            setRecargarVida(prev => !prev);
+            setTimeout(() => setRecargarVida(prev => !prev), 50);
+            //setRecargarVida(prev => !prev);
         }
 
         setTimeout(() => {
