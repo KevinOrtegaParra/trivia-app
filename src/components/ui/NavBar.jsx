@@ -43,6 +43,8 @@ export default function NavBar() {
                                     <NavLink to='/Login' className="nav-link " >
                                         Login
                                     </NavLink>
+                                    <NavLink to='/Game' className="nav-link">Game</NavLink>
+                                    <NavLink to='/Ranking' className="nav-link">Ranking</NavLink>
                                 </>
                             )}
 
@@ -66,7 +68,7 @@ export default function NavBar() {
                             )}
 
                             {user && (
-                                <div  role="search">
+                                <div role="search">
                                     <button className="btn btn-outline-danger " onClick={handleLogout} type="submit">Salir</button>
                                 </div>
                             )}
