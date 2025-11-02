@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ObtenerPreguntas } from "../../services/questiosService"
-import { atualizarVidaLose, ObtenerUser, atualizarpuntos} from "../../services/userService"
+import { atualizarVidaLose, ObtenerUser, atualizarpuntos } from "../../services/userService"
 import correctSound from '../../assets/correct.mp3';
 import wrongSound from '../../assets/wrong.mp3';
 import winningSound from '../../assets/winning.mp3';
@@ -39,8 +39,7 @@ export default function TriviaGame() {
     // 💔 Restar una vida
     const perdervida = async () => {
         try {
-            const { data } = await atualizarVidaLose()
-            setVidas(data.lives)
+            await atualizarVidaLose()
         } catch (e) {
             console.error(e);
             setError(true);
@@ -59,14 +58,17 @@ export default function TriviaGame() {
             audio.play();
             setMostrarModal(true);
         } else {
-            
-            setMensajeModal("❌ Incorrecto");
 
+            setVidas(prev => prev - 1)
+            setMensajeModal(<>
+                ❌ Incorrecto
+                <br />
+                ❤️ Vidas: {vidas - 1}
+            </>);
+            perdervida()
+            setMostrarModal(true);
             const audio = new Audio(wrongSound);
             audio.play();
-            setMostrarModal(true);
-            await perdervida();
-            
         }
 
         setTimeout(() => {
@@ -144,14 +146,12 @@ export default function TriviaGame() {
 
     return (
 
-        <div className="container text-center mt-5" style={{minHeight: "100vh"}}>
+        <div className="container text-center mt-5" style={{ minHeight: "100vh" }}>
             <Trivia pregunta={preguntaActual} responder={responder} />
 
             <div className="estado">
                 <p>Puntaje: {puntuacion}</p>
-            </div>
-            <div className="estado">
-                <p>❤️ Vidas: {vidas}</p>
+                {/*<p>❤️ Vidas: {vidas}</p>*/}
             </div>
             {/* 👇 Modal condicional */}
             {mostrarModal && (
