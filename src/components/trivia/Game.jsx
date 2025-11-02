@@ -65,7 +65,7 @@ export default function TriviaGame() {
             const audio = new Audio(wrongSound);
             audio.play();
             setMostrarModal(true);
-            setTimeout(() => {perdervida()}, 50);
+            await perdervida();
             
         }
 
