@@ -51,7 +51,11 @@ export default function TriviaGame() {
         const pregunta = preguntas[indiceActual];
         if (opcionSeleccionada === pregunta.correctAnswer) {
             setTimeout(() => setPuntuacion(prev => prev + 10), 50);
-            setMensajeModal("✅ ¡Correcto!");
+            setMensajeModal(<>
+                ✅ ¡Correcto!
+                <br />
+                <p>Puntaje: {puntuacion + 10}</p>
+            </>);
             console.log(puntuacion)
 
             const audio = new Audio(correctSound);
@@ -150,7 +154,7 @@ export default function TriviaGame() {
             <Trivia pregunta={preguntaActual} responder={responder} />
 
             <div className="estado">
-                <p>Puntaje: {puntuacion}</p>
+                {/*<p>Puntaje: {puntuacion}</p>*/}
                 {/*<p>❤️ Vidas: {vidas}</p>*/}
             </div>
             {/* 👇 Modal condicional */}
