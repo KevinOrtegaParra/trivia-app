@@ -1,22 +1,5 @@
-/*export default function ModalCustom({ mensaje, onClose }) {
-  return (
-    <div
-      className="modal fade show d-block"
-      tabIndex="-1"
-      style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-    >
-      <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content text-center p-4">
-          <h4>{mensaje}</h4>
-          <button className="btn btn-secondary mt-3" onClick={onClose}>
-            Cerrar
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}*/
-export default function ModalCustom({ mensaje, onClose, juegoTerminado, onRestart }) {
+
+export default function ModalCustom({ mensaje, juegoTerminado, onRestart }) {
   return (
     <div
       className="modal fade show d-block"
@@ -32,10 +15,7 @@ export default function ModalCustom({ mensaje, onClose, juegoTerminado, onRestar
             <button className="btn btn-primary mt-3" onClick={onRestart}>
               Volver al inicio
             </button>
-          ) : (
-            <button className="btn btn-secondary mt-3" onClick={onClose}>
-              Cerrar
-            </button>
+          ) : (""
           )}
         </div>
       </div>

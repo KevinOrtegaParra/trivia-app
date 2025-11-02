@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ObtenerUser } from "../../services/userService"
 
-export default function Life({ recargar }) {
+export default function Life() {
 
     const [vida, setVida] = useState(-1);
     const [error, setError] = useState(false);
@@ -19,11 +19,6 @@ export default function Life({ recargar }) {
             setError(true);
         }
     };
-
-    // 👇 Si le pasas `recargar` desde el juego cuando pierde una vida:
-    useEffect(() => {
-        cargarvida();
-    }, [recargar]);
 
     if(error)return " "
 

@@ -7,7 +7,6 @@ import wrongSound from '../../assets/wrong.mp3';
 import winningSound from '../../assets/winning.mp3';
 import Trivia from "./Trivia"
 import ModalCustom from "./ModalCustom";
-//import Life from "../ui/Life"
 
 export default function TriviaGame() {
     const navigate = useNavigate();
@@ -19,7 +18,6 @@ export default function TriviaGame() {
     const [mostrarModal, setMostrarModal] = useState(false);
     const [mensajeModal, setMensajeModal] = useState("");
     const [juegoTerminado, setJuegoTerminado] = useState(false);
-    //const [recargarVida, setRecargarVida] = useState(false);
 
     useEffect(() => {
         cargarPreguntas();
@@ -53,22 +51,22 @@ export default function TriviaGame() {
     const responder = async (opcionSeleccionada) => {
         const pregunta = preguntas[indiceActual];
         if (opcionSeleccionada === pregunta.correctAnswer) {
-            //setPuntuacion(prev => prev + 10);
             setTimeout(() => setPuntuacion(prev => prev + 10), 50);
             setMensajeModal("✅ ¡Correcto!");
+            console.log(puntuacion)
 
             const audio = new Audio(correctSound);
             audio.play();
             setMostrarModal(true);
         } else {
+            
             setMensajeModal("❌ Incorrecto");
 
             const audio = new Audio(wrongSound);
             audio.play();
             setMostrarModal(true);
-            await perdervida()
-            //setTimeout(() => setRecargarVida(prev => !prev), 50);
-            //setRecargarVida(prev => !prev);
+            setTimeout(() => {perdervida()}, 50);
+            
         }
 
         setTimeout(() => {
@@ -151,13 +149,12 @@ export default function TriviaGame() {
 
             <div className="estado">
                 <p>Puntaje: {puntuacion}</p>
-                {/*<Life recargar={recargarVida} />*/}
+                <p>❤️ Vidas: {vidas}</p>
             </div>
             {/* 👇 Modal condicional */}
             {mostrarModal && (
                 <ModalCustom
                     mensaje={mensajeModal}
-                    onClose={() => setMostrarModal(false)}
                     juegoTerminado={juegoTerminado}
                     onRestart={() => navigate("/")} // o puedes resetear el estado
                 />

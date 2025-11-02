@@ -22,7 +22,7 @@ const Home = () => {
         <button className="home-button" onClick={irAlJuego}>
           🎮 Comenzar Trivia
         </button>
-        <Life recargar={false} />
+        <Life />
       </header>
     </div>
   );
