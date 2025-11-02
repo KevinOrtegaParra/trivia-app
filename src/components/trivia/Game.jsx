@@ -149,6 +149,8 @@ export default function TriviaGame() {
 
             <div className="estado">
                 <p>Puntaje: {puntuacion}</p>
+            </div>
+            <div className="estado">
                 <p>❤️ Vidas: {vidas}</p>
             </div>
             {/* 👇 Modal condicional */}
