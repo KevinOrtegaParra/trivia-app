@@ -7,7 +7,7 @@ import wrongSound from '../../assets/wrong.mp3';
 import winningSound from '../../assets/winning.mp3';
 import Trivia from "./Trivia"
 import ModalCustom from "./ModalCustom";
-import Life from "../ui/Life"
+//import Life from "../ui/Life"
 
 export default function TriviaGame() {
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ export default function TriviaGame() {
     const [mostrarModal, setMostrarModal] = useState(false);
     const [mensajeModal, setMensajeModal] = useState("");
     const [juegoTerminado, setJuegoTerminado] = useState(false);
-    const [recargarVida, setRecargarVida] = useState(false);
+    //const [recargarVida, setRecargarVida] = useState(false);
 
     useEffect(() => {
         cargarPreguntas();
@@ -55,7 +55,6 @@ export default function TriviaGame() {
         if (opcionSeleccionada === pregunta.correctAnswer) {
             //setPuntuacion(prev => prev + 10);
             setTimeout(() => setPuntuacion(prev => prev + 10), 50);
-            console.log("new actualization")
             setMensajeModal("✅ ¡Correcto!");
 
             const audio = new Audio(correctSound);
@@ -68,7 +67,7 @@ export default function TriviaGame() {
             audio.play();
             setMostrarModal(true);
             await perdervida()
-            setTimeout(() => setRecargarVida(prev => !prev), 50);
+            //setTimeout(() => setRecargarVida(prev => !prev), 50);
             //setRecargarVida(prev => !prev);
         }
 
@@ -152,7 +151,7 @@ export default function TriviaGame() {
 
             <div className="estado">
                 <p>Puntaje: {puntuacion}</p>
-                <Life recargar={recargarVida} />
+                {/*<Life recargar={recargarVida} />*/}
             </div>
             {/* 👇 Modal condicional */}
             {mostrarModal && (
