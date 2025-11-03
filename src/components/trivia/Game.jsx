@@ -142,7 +142,7 @@ export default function TriviaGame() {
     return (
 
         <div className="container text-center mt-5" style={{ minHeight: "100vh" }}>
-            <Trivia pregunta={preguntaActual} responder={responder} />
+            <Trivia key={indiceActual} pregunta={preguntaActual} responder={responder} />
 
             <div className="estado">
                 {/*<p>Puntaje: {puntuacion}</p>*/}
