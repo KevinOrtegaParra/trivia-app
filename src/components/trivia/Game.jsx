@@ -51,12 +51,7 @@ export default function TriviaGame() {
         const pregunta = preguntas[indiceActual];
         if (opcionSeleccionada === pregunta.correctAnswer) {
             setTimeout(() => setPuntuacion(prev => prev + 10), 50);
-            setMensajeModal(<>
-                ✅ ¡Correcto!
-                <br />
-                <p>Puntaje: {puntuacion + 10}</p>
-            </>);
-            console.log(puntuacion)
+            setMensajeModal(`✅ ¡Correcto!\nPuntaje: ${puntuacion + 10}`);
 
             const audio = new Audio(correctSound);
             audio.play();
@@ -64,11 +59,7 @@ export default function TriviaGame() {
         } else {
 
             setVidas(prev => prev - 1)
-            setMensajeModal(<>
-                ❌ Incorrecto
-                <br />
-                ❤️ Vidas: {vidas - 1}
-            </>);
+            setMensajeModal(`❌ Incorrecto\n❤️ Vidas: ${vidas - 1}`);
             perdervida()
             setMostrarModal(true);
             const audio = new Audio(wrongSound);

@@ -8,7 +8,7 @@ export default function ModalCustom({ mensaje, juegoTerminado, onRestart }) {
     >
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content text-center p-4">
-          <h4>{mensaje}</h4>
+          <h4 style={{ whiteSpace: "pre-line", lineHeight: "1.8"}}>{mensaje}</h4>
 
           {/* Si el juego terminó, mostramos el botón para reiniciar */}
           {juegoTerminado ? (
