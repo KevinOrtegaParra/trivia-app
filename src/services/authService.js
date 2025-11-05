@@ -10,6 +10,14 @@ export const loginUsuario = (credenciales = {}) => {
   });
 };
 
+export const loginGoogle = (idToken  = {}) => {
+  return axiosConfig.post("/auth/google", idToken , {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+};
+
 // Registro
 export const registrarUsuario = (datos = {}) => {
   return axiosConfig.post("users/register", datos, {

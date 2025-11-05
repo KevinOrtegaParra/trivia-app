@@ -49,7 +49,12 @@ input:disabled {
 }
 button {
   display: block;
-  margin: 0 auto
+  margin: 0 auto;
+
+}
+.login-Button{
+  width: 100%;
+  border-radius: 30px;
 }
 
 /*__________________________________________________________________________________________*/

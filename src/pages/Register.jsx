@@ -49,7 +49,7 @@ export default function Register() {
 
   return (
     <>
-      <div style={{minHeight: "100vh"}}>
+      <div style={{minHeight: "80vh"}}>
         <div className="form">
           <h2 >Registro de Usuario</h2>
           <form onSubmit={handleSubmit}>
