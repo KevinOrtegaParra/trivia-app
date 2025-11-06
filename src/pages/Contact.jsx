@@ -14,7 +14,7 @@ const Contact = () => {
 
                 <div className="text-center mt-4">
                     <a
-                        href="mailto:kevinortega@gmail.com"
+                        href="mailto:kaop0210@gmail.com"
                         className="btn btn-warning fw-bold px-4 py-2 rounded-pill"
                     >
                         ✉️ Enviar correo

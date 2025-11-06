@@ -41,7 +41,7 @@ const PrivacyPolicy = () => {
         <p className="text-center text-secondary">
           Si tienes dudas sobre esta política, escríbenos a{" "}
           <a
-            href="mailto:kevinortega@gmail.com"
+            href="mailto:kaop0210@gmail.com"
             className="text-warning fw-bold"
           >
             kevinortega@gmail.com

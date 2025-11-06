@@ -6,6 +6,7 @@ import correctSound from '../../assets/correct.mp3';
 import wrongSound from '../../assets/wrong.mp3';
 import winningSound from '../../assets/winning.mp3';
 import Trivia from "./Trivia"
+import Livelife from "./Livelife"
 import ModalCustom from "./ModalCustom";
 
 export default function TriviaGame() {
@@ -18,6 +19,7 @@ export default function TriviaGame() {
     const [mostrarModal, setMostrarModal] = useState(false);
     const [mensajeModal, setMensajeModal] = useState("");
     const [juegoTerminado, setJuegoTerminado] = useState(false);
+
 
     useEffect(() => {
         cargarPreguntas();
@@ -50,8 +52,8 @@ export default function TriviaGame() {
     const responder = async (opcionSeleccionada) => {
         const pregunta = preguntas[indiceActual];
         if (opcionSeleccionada === pregunta.correctAnswer) {
-            setTimeout(() => setPuntuacion(prev => prev + 10), 50);
-            setMensajeModal(`✅ ¡Correcto!\nPuntaje: ${puntuacion + 10}`);
+            setTimeout(() => setPuntuacion(prev => prev + 2), 50);
+            setMensajeModal(`✅ ¡Correcto!\nPuntaje: ${puntuacion + 2}`);
 
             const audio = new Audio(correctSound);
             audio.play();
@@ -74,7 +76,7 @@ export default function TriviaGame() {
                 audio.play();
 
                 const puntajeFinal = opcionSeleccionada === pregunta.correctAnswer
-                    ? puntuacion + 10
+                    ? puntuacion + 2
                     : puntuacion;
 
                 atualizarpuntos(puntajeFinal);
@@ -106,37 +108,11 @@ export default function TriviaGame() {
         };
     }, [juegoTerminado]);
 
-    // 🛑 Confirmar salida manual (botón)
-    const handleSalir = () => {
-        if (!juegoTerminado) {
-            const confirmar = window.confirm("⚠️ Si sales ahora, perderás los puntos obtenidos. ¿Deseas salir?");
-            if (!confirmar) return;
-        }
-        navigate("/");
-    };
-
     //if (error) return <p>Error al cargar las preguntas</p>;
     if (preguntas === null) return <div className="text-center mt-5">Cargando preguntas...</div>;
     //😢 experimental
-    if (vidas === 0) return (
-        <div className="text-center mt-5">
-            <h2>😢 Te quedaste sin vidas</h2>
-            <button
-                className="btn btn-warning mt-4"
-            //onClick={verAnuncio}
-            >
-                🎬 Ver anuncio para recuperar una vida
-            </button>
-            {/* Botón salir */}
-            <button
-                className="btn btn-danger mt-4"
-                onClick={handleSalir}
-            >
-                🚪 Salir del juego
-            </button>
-        </div>
-    )
-
+    if (vidas === 0) return (<Livelife setVidas={setVidas} juegoTerminado={juegoTerminado} navigate={navigate}/>);
+    if (preguntas === "") cargarPreguntas();
     const preguntaActual = preguntas[indiceActual];
 
     return (

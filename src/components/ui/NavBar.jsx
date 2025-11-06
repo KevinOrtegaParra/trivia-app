@@ -1,9 +1,8 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 import logo from '../../assets/logo.png'
 import './Navbar.css'
-import { getUserFromToken, hasRole, logoutUsuario } from "../../services/authService";
 
 export default function NavBar() {
     const navigate = useNavigate();
@@ -43,8 +42,6 @@ export default function NavBar() {
                                     <NavLink to='/Login' className="nav-link " >
                                         Login
                                     </NavLink>
-                                    <NavLink to='/Game' className="nav-link">Game</NavLink>
-                                    <NavLink to='/Ranking' className="nav-link">Ranking</NavLink>
                                 </>
                             )}
 
@@ -53,8 +50,11 @@ export default function NavBar() {
                                     <NavLink to='/Game' className="nav-link " >
                                         Game
                                     </NavLink>
-                                    <NavLink to='/Ranking' className="nav-link " >
+                                    <NavLink to='/ranking' className="nav-link " >
                                         Ranking
+                                    </NavLink>
+                                    <NavLink to='/perfil' className="nav-link " >
+                                        Perfil
                                     </NavLink>
                                 </>
                             )}

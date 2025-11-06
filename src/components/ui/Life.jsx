@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { ObtenerUser } from "../../services/userService"
 
 export default function Life() {
-
     const [vida, setVida] = useState(-1);
     const [error, setError] = useState(false);
 
@@ -20,7 +19,7 @@ export default function Life() {
         }
     };
 
-    if(error)return " "
+    if (error) return " "
 
     return (
         vida === 0 - 1 ? <div className="spinner-border text-primary" role="status">

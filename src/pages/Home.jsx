@@ -1,10 +1,10 @@
 import logo from '../assets/logo.png'
-import { useNavigate } from "react-router-dom";
 import Life from "../components/ui/Life"
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-   const navigate = useNavigate();
-
+  
+  const navigate = useNavigate();
   const irAlJuego = () => {
     navigate("/game"); // 👈 redirige a la ruta del juego
   };
